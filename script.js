@@ -63,58 +63,10 @@ document.addEventListener('DOMContentLoaded', () => {
         currentYearSpan.textContent = new Date().getFullYear();
     }
 
-    // --- Form Handling (Frontend Validation & Submission Placeholder) ---
-    const contactForm = document.getElementById('contact-form');
-    const formStatus = document.getElementById('form-status');
-
-    if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault(); // Prevent default form submission
-
-            formStatus.textContent = 'Sending...';
-            formStatus.style.color = '#007bff'; // Blue for sending status
-
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData.entries());
-
-            try {
-                // This is where you would send data to your backend PHP script
-                // For now, it's a placeholder. Uncomment and adjust when send_email.php is ready.
-                /*
-                const response = await fetch(contactForm.action, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json', // Or 'application/x-www-form-urlencoded' if not JSON
-                    },
-                    body: JSON.stringify(data), // Or new URLSearchParams(formData)
-                });
-
-                const result = await response.json(); // Assuming your PHP returns JSON
-
-                if (response.ok) {
-                    formStatus.textContent = result.message || 'Message sent successfully!';
-                    formStatus.style.color = '#28a745'; // Green for success
-                    contactForm.reset();
-                } else {
-                    formStatus.textContent = result.message || 'Failed to send message. Please try again.';
-                    formStatus.style.color = '#dc3545'; // Red for error
-                }
-                */
-
-                // Simulating a successful response for demonstration
-                await new Promise(resolve => setTimeout(resolve, 2000)); // Simulate network delay
-                formStatus.textContent = 'Message sent successfully! (Simulated)';
-                formStatus.style.color = '#28a745'; // Green for success
-                contactForm.reset();
-
-
-            } catch (error) {
-                console.error('Error submitting form:', error);
-                formStatus.textContent = 'An error occurred. Please try again later.';
-                formStatus.style.color = '#dc3545'; // Red for error
-            }
-        });
-    }
+ 
+              
+                 
+            
 
     // Optional: Add active class to nav link on scroll
     const sections = document.querySelectorAll('main section');
@@ -142,5 +94,6 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach(section => {
         sectionObserver.observe(section);
     });
+
 
 });
