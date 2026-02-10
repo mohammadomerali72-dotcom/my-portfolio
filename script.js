@@ -64,57 +64,47 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // --- Form Handling (Frontend Validation & Submission Placeholder) ---
-    const contactForm = document.getElementById('contact-form');
-    const formStatus = document.getElementById('form-status');
+   // --- Form Handling (Real Submission to Formspree) ---
+const contactForm = document.getElementById('contact-form');
+const formStatus = document.getElementById('form-status');
 
-    if (contactForm) {
-        contactForm.addEventListener('submit', async (e) => {
-            e.preventDefault(); // Prevent default form submission
+if (contactForm) {
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault(); // Prevent page refresh
 
-            formStatus.textContent = 'Sending...';
-            formStatus.style.color = '#007bff'; // Blue for sending status
+        formStatus.textContent = 'Sending...';
+        formStatus.style.color = '#007bff'; // Blue
 
-            const formData = new FormData(contactForm);
-            const data = Object.fromEntries(formData.entries());
+        const formData = new FormData(contactForm);
 
-            try {
-                // This is where you would send data to your backend PHP script
-                // For now, it's a placeholder. Uncomment and adjust when send_email.php is ready.
-                /*
-                const response = await fetch(contactForm.action, {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json', // Or 'application/x-www-form-urlencoded' if not JSON
-                    },
-                    body: JSON.stringify(data), // Or new URLSearchParams(formData)
-                });
-
-                const result = await response.json(); // Assuming your PHP returns JSON
-
-                if (response.ok) {
-                    formStatus.textContent = result.message || 'Message sent successfully!';
-                    formStatus.style.color = '#28a745'; // Green for success
-                    contactForm.reset();
-                } else {
-                    formStatus.textContent = result.message || 'Failed to send message. Please try again.';
-                    formStatus.style.color = '#dc3545'; // Red for error
+        try {
+            // Send the real data to Formspree using the 'action' from your HTML
+            const response = await fetch(contactForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
                 }
-                */
+            });
 
-                // Simulating a successful response for demonstration
-                await new Promise(resolve => setTimeout(resolve, 2000)); // Simulate network delay
-                formStatus.textContent = 'Message sent successfully! (Simulated)';
-                formStatus.style.color = '#28a745'; // Green for success
-                contactForm.reset();
-
-
-            } catch (error) {
-                console.error('Error submitting form:', error);
-                formStatus.textContent = 'An error occurred. Please try again later.';
-                formStatus.style.color = '#dc3545'; // Red for error
+            if (response.ok) {
+                // Success!
+                formStatus.textContent = 'Message sent successfully! I will get back to you soon.';
+                formStatus.style.color = '#28a745'; // Green
+                contactForm.reset(); // Clear the form
+            } else {
+                // Error from server
+                formStatus.textContent = 'Oops! There was a problem sending your message.';
+                formStatus.style.color = '#dc3545'; // Red
             }
-        });
-    }
+        } catch (error) {
+            // Network error
+            console.error('Error submitting form:', error);
+            formStatus.textContent = 'An error occurred. Please check your connection and try again.';
+            formStatus.style.color = '#dc3545'; // Red
+        }
+    });
+}
 
     // Optional: Add active class to nav link on scroll
     const sections = document.querySelectorAll('main section');
@@ -142,5 +132,6 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach(section => {
         sectionObserver.observe(section);
     });
+
 
 });
