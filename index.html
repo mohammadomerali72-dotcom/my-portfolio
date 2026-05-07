@@ -16,31 +16,34 @@
 </head>
 <body class="dark-theme">
 
-    <header class="header">
-        <div class="container header-container">
-            <div class="logo">MOA</div>
-            <nav class="nav-menu" id="nav-menu">
-                <ul class="nav-list">
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-            </nav>
-            <div class="nav-actions">
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <!-- Mobile Toggle -->
-                <button class="mobile-toggle" id="mobile-toggle">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
-            </div>
-        </div>
-    </header>
+   <header class="header">
+    <div class="container header-container">
+        <!-- Logo as a link to top -->
+        <a href="#" class="logo" id="site-logo">MOA</a>
+        
+        <nav class="nav-menu" id="nav-menu">
+            <ul class="nav-list">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
 
+        <!-- Container for both buttons to keep them side-by-side -->
+        <div class="nav-actions">
+            <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                <i class="fas fa-moon"></i>
+            </button>
+            
+            <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
+            </button>
+        </div>
+    </div>
+</header>
     <main>
         <div class="bg-orb orb-1"></div>
         <div class="bg-orb orb-2"></div>
