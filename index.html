@@ -3,21 +3,29 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Muhammad Omer Ali - Web Developer Portfolio</title>
+    <title>Muhammad Omer Ali | Full-Stack Developer</title>
+    
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
+    
+    <!-- CSS -->
     <link rel="stylesheet" href="style.css">
-    <link rel="icon" type="image/png" href="favicon.png">
-    <!-- Font Awesome for icons (e.g., skill icons, social media) -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-..." crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
 <body>
 
+    <!-- Header / Navigation -->
     <header class="header">
-        <div class="container">
-            <a href="#" class="logo"> MOA </a>
+        <div class="container header-flex">
+            <div class="logo">MOA</div>
+            
             <nav class="nav-menu">
                 <ul class="nav-list">
                     <li><a href="#about">About</a></li>
@@ -26,198 +34,162 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-            <button class="nav-toggle" aria-label="toggle navigation">
-                <span class="hamburger"></span>
-            </button>
+
+            <div class="nav-actions">
+                <!-- Theme Toggle Button -->
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
+                    <i class="fas fa-moon"></i>
+                </button>
+                
+                <button class="nav-toggle" id="mobile-menu-btn">
+                    <span class="hamburger"></span>
+                </button>
+            </div>
         </div>
     </header>
 
     <main>
+        <!-- Hero Section -->
         <section id="hero" class="hero-section">
             <div class="container">
                 <h1>MUHAMMAD OMER ALI</h1>
                 <p class="tagline">Full-Stack Web Developer | Building seamless digital experiences.</p>
                 <div class="hero-actions">
-                    <a href="#projects" class="btn btn-primary">View My Work</a>
-                
-                    <a href="your_resume.pdf" download class="btn btn-secondary">Download CV</a>
-                    
+                    <a href="#projects" class="btn-project">View My Work</a>
+                    <a href="your_resume.pdf" download class="btn-project outline">Download CV</a>
                 </div>
             </div>
         </section>
 
+        <!-- About Section -->
         <section id="about" class="about-section section-padding">
             <div class="container">
-                <h2>About Me</h2>
+                <h2 class="section-title">About Me</h2>
                 <div class="about-content">
                     <div class="about-text">
                         <p>Hello! I'm Muhammad Omer Ali, a passionate and dedicated Web Developer with a strong foundation in both front-end and back-end technologies. I love bringing ideas to life on the web, focusing on clean code, responsive design, and user-friendly interfaces.</p>
-                        <p>My journey in web development has equipped me with a robust skill set, allowing me to tackle challenges from database design to pixel-perfect UIs. I'm always eager to learn new technologies and contribute to impactful projects.</p>
+                        <p>My journey in web development has equipped me with a robust skill set, allowing me to tackle challenges from database design to pixel-perfect UIs.</p>
                     </div>
-                    <!-- You can add a professional headshot here -->
-                    <!-- <div class="about-image">
-                        <img src="your_photo.jpg" alt="Muhammad Omer Ali" class="profile-photo">
-                    </div> -->
                 </div>
             </div>
         </section>
 
+        <!-- Skills Section -->
         <section id="skills" class="skills-section section-padding">
             <div class="container">
-                <h2>My Skills</h2>
+                <h2 class="section-title">My Skills</h2>
                 <div class="skills-grid">
-                    <div class="skill-item">
-                        <i class="fab fa-html5"></i>
-                        <span>HTML5</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-css3-alt"></i>
-                        <span>CSS3</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-js"></i>
-                        <span>JavaScript</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-php"></i>
-                        <span>PHP</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-laravel"></i>
-                        <span>Laravel</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fas fa-database"></i> <!-- Using generic database icon -->
-                        <span>MySQL</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-wordpress"></i>
-                        <span>WordPress</span>
-                    </div>
-                    <!-- Add more skills as needed -->
-                    <div class="skill-item">
-                        <i class="fab fa-git-alt"></i>
-                        <span>Git</span>
-                    </div>
-                    <div class="skill-item">
-                        <i class="fab fa-bootstrap"></i>
-                        <span>Bootstrap</span>
-                    </div>
+                    <div class="skill-item"><i class="fab fa-html5"></i><span>HTML5</span></div>
+                    <div class="skill-item"><i class="fab fa-css3-alt"></i><span>CSS3</span></div>
+                    <div class="skill-item"><i class="fab fa-js"></i><span>JavaScript</span></div>
+                    <div class="skill-item"><i class="fab fa-php"></i><span>PHP</span></div>
+                    <div class="skill-item"><i class="fab fa-laravel"></i><span>Laravel</span></div>
+                    <div class="skill-item"><i class="fas fa-database"></i><span>MySQL</span></div>
+                    <div class="skill-item"><i class="fab fa-wordpress"></i><span>WordPress</span></div>
+                    <div class="skill-item"><i class="fab fa-git-alt"></i><span>Git</span></div>
+                    <div class="skill-item"><i class="fab fa-bootstrap"></i><span>Bootstrap</span></div>
                 </div>
             </div>
         </section>
 
+        <!-- Projects Section -->
         <section id="projects" class="projects-section section-padding">
             <div class="container">
-                <h2>My Projects</h2>
-              <!-- Projects Section -->
-<!-- Projects Section -->
-<div class="projects-grid">
+                <h2 class="section-title">My Projects</h2>
+                <div class="projects-grid">
 
-    <!-- Project 1: E-commerce Platform -->
-    <div class="project-card">
-        <img src="https://images.unsplash.com/photo-1557821552-17105176677c?auto=format&fit=crop&q=80&w=800" alt="E-commerce Platform">
-        <h3>E-commerce Platform</h3>
-        <p class="technologies">HTML, CSS, JavaScript, PHP, MySQL, Laravel</p>
-        <p>Developed a full-featured e-commerce platform with user authentication, product catalog, and order management.</p>
-        <div class="project-links" style="display: flex; justify-content: center; margin-top: 20px;">
-            <a href="https://github.com/mohammadomerali72-dotcom/ecommerce-fullstack-design.-" target="_blank" class="btn btn-project">GitHub Repo <i class="fab fa-github"></i></a>
-        </div>
-    </div>
+                    <!-- Project 1 -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1557821552-17105176677c?w=800" alt="E-commerce">
+                        <h3>E-commerce Platform</h3>
+                        <p class="technologies">Laravel, PHP, MySQL, JS</p>
+                        <p>Developed a full-featured e-commerce platform with authentication and order management.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/mohammadomerali72-dotcom/ecommerce-fullstack-design.-" target="_blank" class="btn-project">GitHub Repo <i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
 
-    <!-- Project 2: Social Media Dashboard -->
-    <div class="project-card">
-        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" alt="Social Media Dashboard">
-        <h3>Social Media Dashboard</h3>
-        <p class="technologies">HTML, CSS, JavaScript, API Integration</p>
-        <p>Created an interactive dashboard to display social media analytics using various APIs and modern front-end techniques.</p>
-        <div class="project-links" style="display: flex; justify-content: center; margin-top: 20px;">
-            <a href="https://github.com/mohammadomerali72-dotcom/pro-social-suite" target="_blank" class="btn btn-project">GitHub Repo <i class="fab fa-github"></i></a>
-        </div>
-    </div>
+                    <!-- Project 2 -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800" alt="Dashboard">
+                        <h3>Social Dashboard</h3>
+                        <p class="technologies">HTML, CSS, JS, API</p>
+                        <p>Created an interactive dashboard to display social media analytics using various APIs.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/mohammadomerali72-dotcom/pro-social-suite" target="_blank" class="btn-project">GitHub Repo <i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
 
-    <!-- Project 3: AuraDash AI SaaS -->
-    <div class="project-card">
-        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&q=80&w=800" alt="AuraDash AI SaaS">
-        <h3>AuraDash AI SaaS</h3>
-        <p class="technologies">Laravel 11, Tailwind CSS, Ollama (Llama 3)</p>
-        <p>A premium, local-first AI SaaS Neural OS built with Laravel 11 and integrated with Llama 3 for local processing.</p>
-        <div class="project-links" style="display: flex; justify-content: center; margin-top: 20px;">
-            <a href="https://github.com/mohammadomerali72-dotcom/auradash" target="_blank" class="btn btn-project">GitHub Repo <i class="fab fa-github"></i></a>
-        </div>
-    </div>
+                    <!-- Project 3 -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800" alt="AI SaaS">
+                        <h3>AuraDash AI SaaS</h3>
+                        <p class="technologies">Laravel 11, Tailwind, Llama 3</p>
+                        <p>A premium, local-first AI SaaS Neural OS built with Laravel 11 and Ollama.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/mohammadomerali72-dotcom/auradash" target="_blank" class="btn-project">GitHub Repo <i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
 
-    <!-- Project 4: Nexus Full-Stack -->
-    <div class="project-card">
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=800" alt="Nexus Full-Stack">
-        <h3>Nexus Full-Stack Platform</h3>
-        <p class="technologies">TypeScript, Node.js, Express, React</p>
-        <p>A robust full-stack application developed using TypeScript, focusing on scalable architecture and type-safe data handling.</p>
-        <div class="project-links" style="display: flex; justify-content: center; margin-top: 20px;">
-            <a href="https://github.com/mohammadomerali72-dotcom/Nexus-Platform-FullStack" target="_blank" class="btn btn-project">GitHub Repo <i class="fab fa-github"></i></a>
-        </div>
-    </div>
+                    <!-- Project 4 -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800" alt="Nexus">
+                        <h3>Nexus Full-Stack</h3>
+                        <p class="technologies">TypeScript, Node, React</p>
+                        <p>A robust full-stack application focused on scalable architecture and type-safety.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/mohammadomerali72-dotcom/Nexus-Platform-FullStack" target="_blank" class="btn-project">GitHub Repo <i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
 
-    <!-- Project 5: Elite Estates -->
-    <div class="project-card">
-        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800" alt="Elite Estates">
-        <h3>Elite Estates</h3>
-        <p class="technologies">PHP, MySQL, HTML, CSS</p>
-        <p>A comprehensive real estate management system for browsing property listings with advanced filtering features.</p>
-        <div class="project-links" style="display: flex; justify-content: center; margin-top: 20px;">
-            <a href="https://github.com/mohammadomerali72-dotcom/elite_estates" target="_blank" class="btn btn-project">GitHub Repo <i class="fab fa-github"></i></a>
-        </div>
-    </div>
+                    <!-- Project 5 -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800" alt="Real Estate">
+                        <h3>Elite Estates</h3>
+                        <p class="technologies">PHP, MySQL, HTML, CSS</p>
+                        <p>A comprehensive real estate system for property listings with advanced filtering.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/mohammadomerali72-dotcom/elite_estates" target="_blank" class="btn-project">GitHub Repo <i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
 
-    <!-- Project 6: My Portfolio -->
-    <div class="project-card">
-        <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?auto=format&fit=crop&q=80&w=800" alt="My Portfolio">
-        <h3>Personal Portfolio</h3>
-        <p class="technologies">HTML, CSS, JavaScript</p>
-        <p>The source code for this personal portfolio website, featuring a responsive design and smooth scrolling.</p>
-        <div class="project-links" style="display: flex; justify-content: center; margin-top: 20px;">
-            <a href="https://github.com/mohammadomerali72-dotcom/my-portfolio" target="_blank" class="btn btn-project">GitHub Repo <i class="fab fa-github"></i></a>
-        </div>
-    </div>
+                    <!-- Project 6 -->
+                    <div class="project-card">
+                        <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800" alt="Portfolio">
+                        <h3>Personal Portfolio</h3>
+                        <p class="technologies">HTML, CSS, JS</p>
+                        <p>The source code for this portfolio website, featuring glassmorphism design.</p>
+                        <div class="project-links">
+                            <a href="https://github.com/mohammadomerali72-dotcom/my-portfolio" target="_blank" class="btn-project">GitHub Repo <i class="fab fa-github"></i></a>
+                        </div>
+                    </div>
 
-</div>
-                
- </section>
-        <section id="contact" class="contact-section section-padding">
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="section-padding">
             <div class="container">
-                <h2>Get In Touch</h2>
-                <p>Have a project in mind or just want to say hello? Feel free to reach out!</p>
-               <form id="contact-form" class="contact-form" action="https://formspree.io/f/xblzwpod" method="POST">
-    <div class="form-group">
-        <label for="name">Name:</label>
-        <input type="text" id="name" name="name" required>
-    </div>
-    <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
-    </div>
-    <div class="form-group">
-        <label for="message">Message:</label>
-        <textarea id="message" name="message" rows="6" required></textarea>
-    </div>
-    <button type="submit" class="btn btn-primary">Send Message</button>
-    <p id="form-status" class="form-status"></p>
-</form>
-                <div class="social-links">
-                    <!-- LinkedIn Link -->
-<a href="https://www.linkedin.com/in/muhammad-omer-ali" target="_blank" aria-label="LinkedIn">
-  <i class="fab fa-linkedin fa-2x"></i>
-</a>
-
-<!-- GitHub Link -->
-<a href="https://github.com/mohammadomerali72-dotcom" target="_blank" aria-label="GitHub">
-  <i class="fab fa-github fa-2x"></i>
-</a>
-
-<!-- Email Link -->
-<a href="mailto:mohammadomerali72@gmail.com" aria-label="Email">
-  <i class="fas fa-envelope fa-2x"></i>
-</a>
+                <h2 class="section-title">Get In Touch</h2>
+                <div class="contact-form">
+                    <form action="https://formspree.io/f/xblzwpod" method="POST">
+                        <div class="input-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
+                        </div>
+                        <div style="text-align: center;">
+                            <button type="submit" class="btn-project">Send Message</button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </section>
@@ -225,15 +197,41 @@
 
     <footer class="footer">
         <div class="container">
-            <p>&copy; <span id="current-year"></span> Muhammad Omer Ali. All rights reserved.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/muhammad-omer-ali" target="_blank"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/mohammadomerali72-dotcom" target="_blank"><i class="fab fa-github"></i></a>
+                <a href="mailto:mohammadomerali72@gmail.com"><i class="fas fa-envelope"></i></a>
+            </div>
+            <p>&copy; <span id="year"></span> Muhammad Omer Ali. All rights reserved.</p>
         </div>
     </footer>
 
-    <script src="script.js"></script>
+    <!-- JavaScript for Interactions -->
+    <script>
+        // 1. Theme Toggle Logic
+        const toggleBtn = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        toggleBtn.addEventListener('click', () => {
+            body.classList.toggle('light-theme');
+            const icon = toggleBtn.querySelector('i');
+            if(body.classList.contains('light-theme')) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+            }
+        });
+
+        // 2. Mobile Menu Logic
+        const menuBtn = document.getElementById('mobile-menu-btn');
+        const nav = document.querySelector('.nav-menu');
+        menuBtn.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            menuBtn.classList.toggle('active');
+        });
+
+        // 3. Update Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
 </body>
-
 </html>
-
-
-
-
