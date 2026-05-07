@@ -1,73 +1,32 @@
 /* =========================================================
-   MUHAMMAD OMER ALI — ULTRA FUTURISTIC PORTFOLIO 2026
-   PREMIUM GLASS + MOTION DESIGN SYSTEM
+   MUHAMMAD OMER ALI — NEXT GEN FUTURISTIC PORTFOLIO 2026
 ========================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&family=Inter:wght@300;400;500;600;700;800&display=swap');
 
-/* =========================================================
-   ROOT DESIGN SYSTEM
-========================================================= */
-
 :root{
-
-    --bg: #030712;
-    --bg-secondary: #0b1220;
-
+    --bg: #020617;
+    --bg2: #0b1020;
     --text: #ffffff;
-    --dim: #94a3b8;
+    --dim: #9aa4b2;
 
     --accent: #00e5ff;
-    --accent-2: #7c3aed;
-    --accent-3: #00ffae;
+    --accent2: #7c3aed;
+    --accent3: #00ffae;
 
-    --glass: rgba(255,255,255,0.05);
-    --glass-strong: rgba(255,255,255,0.08);
+    --glass: rgba(255,255,255,0.06);
+    --glass2: rgba(255,255,255,0.12);
 
     --border: rgba(255,255,255,0.10);
 
-    --shadow:
-        0 20px 60px rgba(0,0,0,0.45);
+    --shadow: 0 10px 40px rgba(0,0,0,0.4);
+    --glow: 0 0 25px rgba(0,229,255,0.25);
 
-    --glow:
-        0 0 18px rgba(0,229,255,0.25),
-        0 0 45px rgba(124,58,237,0.15);
-
-    --gradient:
-        linear-gradient(135deg,#00e5ff,#7c3aed,#00ffae);
-
-    --card-blur: blur(18px);
-
-    --radius: 28px;
-
-    --transition: all 0.35s cubic-bezier(.4,0,.2,1);
+    --radius: 25px;
+    --transition: 0.4s cubic-bezier(.175,.885,.32,1.275);
 }
 
-/* =========================================================
-   LIGHT THEME
-========================================================= */
-
-body.light-theme{
-
-    --bg:#f5f7fb;
-    --bg-secondary:#e9eef7;
-
-    --text:#0b1220;
-    --dim:#475569;
-
-    --accent:#0284c7;
-
-    --glass: rgba(255,255,255,0.65);
-    --border: rgba(0,0,0,0.08);
-
-    --shadow: 0 20px 50px rgba(0,0,0,0.08);
-
-    --glow: 0 0 20px rgba(2,132,199,0.15);
-}
-
-/* =========================================================
-   BASE RESET
-========================================================= */
+/* ================= GLOBAL ================= */
 
 *{
     margin:0;
@@ -81,52 +40,56 @@ html{
 
 body{
     font-family:'Inter',sans-serif;
-    background:var(--bg);
+    background: radial-gradient(circle at top, var(--bg2), var(--bg));
     color:var(--text);
     overflow-x:hidden;
 }
 
-/* =========================================================
-   BACKGROUND (MODERN AURORA — NO GRID)
-========================================================= */
+/* ================= FUTURISTIC BACKGROUND ================= */
 
 body::before{
     content:"";
     position:fixed;
     inset:0;
     background:
-        radial-gradient(circle at 20% 20%, rgba(0,229,255,0.15), transparent 40%),
-        radial-gradient(circle at 80% 30%, rgba(124,58,237,0.15), transparent 40%),
-        radial-gradient(circle at 50% 80%, rgba(0,255,174,0.10), transparent 50%),
-        linear-gradient(135deg,var(--bg),var(--bg-secondary));
+        radial-gradient(circle at 20% 20%, rgba(0,229,255,0.18), transparent 40%),
+        radial-gradient(circle at 80% 30%, rgba(124,58,237,0.18), transparent 40%),
+        radial-gradient(circle at 50% 80%, rgba(0,255,174,0.10), transparent 40%);
     z-index:-2;
+    animation:moveBg 10s infinite alternate;
 }
 
-/* =========================================================
-   ORBS (SOFT FLOAT)
-========================================================= */
+@keyframes moveBg{
+    from{ transform:translateY(0); }
+    to{ transform:translateY(40px); }
+}
 
+/* Floating blobs */
 .bg-orb{
     position:fixed;
+    filter:blur(120px);
     border-radius:50%;
-    filter:blur(90px);
-    opacity:0.25;
     z-index:-1;
-    animation:float 12s ease-in-out infinite alternate;
+    opacity:0.35;
 }
 
-.orb-1{width:400px;height:400px;background:#00e5ff;top:-120px;left:-120px;}
-.orb-2{width:350px;height:350px;background:#7c3aed;bottom:-120px;right:-120px;}
-.orb-3{width:250px;height:250px;background:#00ffae;top:50%;left:50%;transform:translate(-50%,-50%);}
-
-@keyframes float{
-    from{transform:translateY(0);}
-    to{transform:translateY(40px);}
+.orb-1{
+    width:400px;
+    height:400px;
+    background:#00e5ff;
+    top:-100px;
+    left:-100px;
 }
 
-/* =========================================================
-   CONTAINER
-========================================================= */
+.orb-2{
+    width:350px;
+    height:350px;
+    background:#7c3aed;
+    bottom:-100px;
+    right:-100px;
+}
+
+/* ================= CONTAINER ================= */
 
 .container{
     width:min(1200px,92%);
@@ -137,83 +100,49 @@ body::before{
     padding:110px 0;
 }
 
-/* =========================================================
-   GLASS EFFECT (IMPROVED DEPTH)
-========================================================= */
+/* ================= GLASS ================= */
 
-.glass,
 .glass-card,
 .project-card,
 .skill-badge,
 .header{
-
     background:var(--glass);
-    backdrop-filter:blur(20px);
+    backdrop-filter: blur(20px);
     border:1px solid var(--border);
-
-    box-shadow:var(--shadow);
-
     border-radius:var(--radius);
-
-    transition:var(--transition);
-
-    position:relative;
-    overflow:hidden;
+    box-shadow:var(--shadow);
 }
 
-.glass:hover,
-.project-card:hover,
-.skill-badge:hover{
-
-    transform:translateY(-8px);
-    box-shadow:var(--glow);
-}
-
-/* shine layer */
-.glass::before,
-.project-card::before,
-.skill-badge::before{
-    content:"";
-    position:absolute;
-    inset:0;
-    background:linear-gradient(135deg,rgba(255,255,255,0.12),transparent 50%);
-    opacity:0.5;
-}
-
-/* =========================================================
-   HEADER
-========================================================= */
+/* ================= HEADER ================= */
 
 .header{
     position:fixed;
     top:15px;
     left:50%;
     transform:translateX(-50%);
-    width:min(1300px,94%);
+    width:min(1200px,94%);
     height:75px;
     display:flex;
     align-items:center;
-    justify-content:center;
     z-index:9999;
 }
 
 .header-container{
-    width:100%;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:0 25px;
+    width:100%;
+    padding:0 20px;
 }
 
 .logo{
-    font-size:1.6rem;
     font-weight:900;
+    font-size:1.6rem;
     letter-spacing:3px;
+    color:var(--accent);
 }
 
-/* =========================================================
-   NAV
-========================================================= */
+/* ================= NAV ================= */
 
 .nav-list{
     display:flex;
@@ -225,19 +154,15 @@ body::before{
     text-decoration:none;
     color:var(--text);
     font-weight:600;
-    font-size:0.85rem;
-    opacity:0.8;
-    transition:0.3s;
+    font-size:0.9rem;
+    transition:var(--transition);
 }
 
 .nav-list a:hover{
-    opacity:1;
     color:var(--accent);
 }
 
-/* =========================================================
-   HERO (FIXED PERFECT CENTER)
-========================================================= */
+/* ================= HERO (FIXED CENTER) ================= */
 
 .hero-section{
     min-height:100vh;
@@ -245,98 +170,120 @@ body::before{
     align-items:center;
     justify-content:center;
     text-align:center;
-}
-
-.hero-content{
-    max-width:900px;
-    margin:auto;
+    padding-top:80px;
 }
 
 .hero-section h1{
-    font-size:clamp(3rem,8vw,6.5rem);
+    font-size:clamp(2.8rem,6vw,5rem);
     font-weight:900;
     line-height:1;
 }
 
 .tagline{
-    color:var(--dim);
     margin-top:20px;
-    font-size:1.2rem;
+    color:var(--dim);
+    max-width:700px;
+    margin-left:auto;
+    margin-right:auto;
 }
 
-/* =========================================================
-   BUTTONS
-========================================================= */
+/* ================= BUTTON ================= */
 
 .btn-main{
-    padding:14px 34px;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    padding:15px 35px;
     border-radius:50px;
-    border:none;
-    background:var(--gradient);
     color:#000;
     font-weight:800;
+    border:none;
     cursor:pointer;
     transition:var(--transition);
 }
 
 .btn-main:hover{
-    transform:scale(1.06);
+    transform:translateY(-5px);
+    box-shadow:var(--glow);
 }
 
-/* =========================================================
-   SKILLS
-========================================================= */
+/* ================= SKILLS ================= */
 
 .skills-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
     gap:25px;
 }
 
 .skill-badge{
+    padding:25px;
     text-align:center;
-    padding:30px 15px;
+    transition:var(--transition);
 }
 
-.skill-badge i{
-    font-size:3rem;
-    background:var(--gradient);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+.skill-badge:hover{
+    transform:translateY(-10px);
 }
 
-/* =========================================================
-   PROJECTS
-========================================================= */
+/* ================= PROJECTS ================= */
 
 .projects-grid{
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
     gap:30px;
 }
 
-.project-card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
+.project-card{
+    overflow:hidden;
+    transition:var(--transition);
 }
 
-/* =========================================================
-   MOBILE FIX (IMPORTANT)
-========================================================= */
+.project-card:hover{
+    transform:translateY(-10px);
+}
 
-@media(max-width:768px){
+/* ================= MOBILE MENU FIX ================= */
+
+.mobile-toggle{
+    display:none;
+    flex-direction:column;
+    gap:5px;
+    background:none;
+    border:none;
+}
+
+.mobile-toggle .bar{
+    width:25px;
+    height:3px;
+    background:var(--accent);
+    border-radius:10px;
+}
+
+@media(max-width:900px){
 
     .nav-list{
         display:none;
+        position:absolute;
+        top:80px;
+        right:20px;
+        background:var(--bg);
+        padding:20px;
+        flex-direction:column;
+        border-radius:15px;
+        border:1px solid var(--border);
     }
 
-    .hero-section h1{
-        font-size:2.8rem;
+    .nav-menu.active .nav-list{
+        display:flex;
     }
 
-    .section-padding{
-        padding:80px 0;
+    .mobile-toggle{
+        display:flex;
     }
+}
 
+/* ================= FOOTER ================= */
+
+.footer{
+    text-align:center;
+    padding:80px 0;
+    color:var(--dim);
 }
