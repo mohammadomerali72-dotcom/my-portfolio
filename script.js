@@ -1,156 +1,66 @@
-/**
- * MUHAMMAD OMER ALI - PORTFOLIO CORE JAVASCRIPT
- * Optimized for Chrome, Edge, and Safari
- */
-
 document.addEventListener('DOMContentLoaded', () => {
-    
-    // --- 1. DOM ELEMENTS SELECTION ---
-    const header = document.querySelector('.header');
-    const navToggle = document.getElementById('mobile-menu-btn');
+    const themeBtn = document.getElementById('theme-toggle');
+    const mobileToggle = document.getElementById('mobile-toggle');
     const navMenu = document.getElementById('nav-menu');
-    const themeToggle = document.getElementById('theme-toggle');
-    const contactForm = document.querySelector('.contact-form form'); // Match HTML structure
-    const yearSpan = document.getElementById('year');
+    const siteLogo = document.getElementById('site-logo');
+    const contactForm = document.getElementById('contact-form');
+    const formStatus = document.getElementById('form-status');
 
-    // --- 2. THEME TOGGLE LOGIC (Light / Dark) ---
-    if (themeToggle) {
-        themeToggle.addEventListener('click', () => {
-            document.body.classList.toggle('light-theme');
-            
-            // Toggle Icon between Moon and Sun
-            const icon = themeToggle.querySelector('i');
-            if (document.body.classList.contains('light-theme')) {
-                icon.classList.replace('fa-moon', 'fa-sun');
-            } else {
-                icon.classList.replace('fa-sun', 'fa-moon');
-            }
-            
-            // Optional: Save preference to LocalStorage
-            const currentTheme = document.body.classList.contains('light-theme') ? 'light' : 'dark';
-            localStorage.setItem('portfolio-theme', currentTheme);
-        });
-
-        // Load saved theme on startup
-        if (localStorage.getItem('portfolio-theme') === 'light') {
-            document.body.classList.add('light-theme');
-            themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
-        }
-    }
-
-    // --- 3. STICKY HEADER ON SCROLL ---
-    window.addEventListener('scroll', () => {
-        if (window.scrollY > 50) {
-            header.classList.add('scrolled');
-        } else {
-            header.classList.remove('scrolled');
-        }
+    // 1. Theme Logic
+    themeBtn.addEventListener('click', () => {
+        document.body.classList.toggle('light-theme');
+        const icon = themeBtn.querySelector('i');
+        icon.classList.toggle('fa-moon');
+        icon.classList.toggle('fa-sun');
     });
 
-    // --- 4. MOBILE NAVIGATION ---
-    if (navToggle && navMenu) {
-        navToggle.addEventListener('click', (e) => {
-            e.stopPropagation();
-            navToggle.classList.toggle('active');
-            navMenu.classList.toggle('active');
-        });
-
-        // Close menu when a link is clicked
-        document.querySelectorAll('.nav-list a').forEach(link => {
-            link.addEventListener('click', () => {
-                navToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-        });
-
-        // Close menu when clicking outside
-        document.addEventListener('click', (e) => {
-            if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
-                navToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-            }
-        });
-    }
-
-    // --- 5. SMOOTH SCROLLING WITH OFFSET ---
-    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            const targetId = this.getAttribute('href');
-            if (targetId === '#') return;
-
-            const targetElement = document.querySelector(targetId);
-            if (targetElement) {
-                e.preventDefault();
-                const headerHeight = header.offsetHeight;
-                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-
-                window.scrollTo({
-                    top: targetPosition - headerHeight,
-                    behavior: 'smooth'
-                });
-            }
-        });
+    // 2. Mobile Menu
+    mobileToggle.addEventListener('click', (e) => {
+        e.stopPropagation();
+        mobileToggle.classList.toggle('active');
+        navMenu.classList.toggle('active');
     });
 
-    // --- 6. FORMSPREE SUBMISSION HANDLING ---
+    // 3. Scroll to Top (Logo)
+    siteLogo.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+
+    // 4. Form Submission (AJAX - No Redirect)
     if (contactForm) {
         contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
-            const submitBtn = contactForm.querySelector('button');
-            const originalBtnText = submitBtn.textContent;
-            
-            // Show Loading State
-            submitBtn.disabled = true;
-            submitBtn.textContent = 'Sending...';
-
-            const formData = new FormData(contactForm);
+            const data = new FormData(contactForm);
+            formStatus.textContent = "Sending your message...";
 
             try {
                 const response = await fetch(contactForm.action, {
                     method: 'POST',
-                    body: formData,
+                    body: data,
                     headers: { 'Accept': 'application/json' }
                 });
-
+                
                 if (response.ok) {
-                    alert('Success! Your message has been sent.');
+                    formStatus.innerHTML = "✨ Message Sent! Thanks for contacting, Muhammad Omer Ali will get back to you soon.";
                     contactForm.reset();
+                    contactForm.style.display = "none"; // Form hide kar dein success par
                 } else {
-                    alert('Oops! Something went wrong. Please try again.');
+                    formStatus.textContent = "Oops! Something went wrong. Try again.";
                 }
             } catch (error) {
-                console.error('Submission Error:', error);
-                alert('Network error. Please check your internet connection.');
-            } finally {
-                submitBtn.disabled = false;
-                submitBtn.textContent = originalBtnText;
+                formStatus.textContent = "Error! Please check your internet connection.";
             }
         });
     }
 
-    // --- 7. INTERSECTION OBSERVER (Active Nav Links) ---
-    const observerOptions = {
-        threshold: 0.6
-    };
-
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                document.querySelectorAll('.nav-list a').forEach(link => {
-                    link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
-                });
-            }
+    // Auto-close menu
+    document.querySelectorAll('.nav-list a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileToggle.classList.remove('active');
+            navMenu.classList.remove('active');
         });
-    }, observerOptions);
-
-    document.querySelectorAll('section[id]').forEach(section => {
-        observer.observe(section);
     });
 
-    // --- 8. FOOTER YEAR ---
-    if (yearSpan) {
-        yearSpan.textContent = new Date().getFullYear();
-    }
+    document.getElementById('year').textContent = new Date().getFullYear();
 });
