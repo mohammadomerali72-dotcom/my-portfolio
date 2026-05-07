@@ -1,137 +1,156 @@
+/**
+ * MUHAMMAD OMER ALI - PORTFOLIO CORE JAVASCRIPT
+ * Optimized for Chrome, Edge, and Safari
+ */
+
 document.addEventListener('DOMContentLoaded', () => {
-    // Smooth scrolling for navigation links
-    document.querySelectorAll('.nav-list a, .hero-actions a').forEach(anchor => {
-        anchor.addEventListener('click', function (e) {
-            // Only prevent default if it's an internal link
-            if (this.hash !== '' && this.getAttribute('href').startsWith('#')) {
-                e.preventDefault();
-                const targetElement = document.querySelector(this.hash);
-                if (targetElement) {
-                    // Offset by header height for fixed header
-                    const headerOffset = document.querySelector('.header').offsetHeight;
-                    const elementPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
-                    const offsetPosition = elementPosition - headerOffset - 20; // -20px for extra padding
-
-                    window.scrollTo({
-                        top: offsetPosition,
-                        behavior: 'smooth'
-                    });
-
-                    // Close mobile nav if open
-                    if (document.body.classList.contains('nav-open')) {
-                        document.body.classList.remove('nav-open');
-                        document.querySelector('.nav-toggle').classList.remove('active');
-                        document.querySelector('.nav-menu').classList.remove('active');
-                    }
-                }
-            }
-        });
-    });
-
-    // Mobile Navigation Toggle
-    const navToggle = document.querySelector('.nav-toggle');
-    const navMenu = document.querySelector('.nav-menu');
+    
+    // --- 1. DOM ELEMENTS SELECTION ---
     const header = document.querySelector('.header');
+    const navToggle = document.getElementById('mobile-menu-btn');
+    const navMenu = document.getElementById('nav-menu');
+    const themeToggle = document.getElementById('theme-toggle');
+    const contactForm = document.querySelector('.contact-form form'); // Match HTML structure
+    const yearSpan = document.getElementById('year');
 
-    navToggle.addEventListener('click', () => {
-        document.body.classList.toggle('nav-open');
-        navToggle.classList.toggle('active');
-        navMenu.classList.toggle('active');
-    });
+    // --- 2. THEME TOGGLE LOGIC (Light / Dark) ---
+    if (themeToggle) {
+        themeToggle.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+            
+            // Toggle Icon between Moon and Sun
+            const icon = themeToggle.querySelector('i');
+            if (document.body.classList.contains('light-theme')) {
+                icon.classList.replace('fa-moon', 'fa-sun');
+            } else {
+                icon.classList.replace('fa-sun', 'fa-moon');
+            }
+            
+            // Optional: Save preference to LocalStorage
+            const currentTheme = document.body.classList.contains('light-theme') ? 'light' : 'dark';
+            localStorage.setItem('portfolio-theme', currentTheme);
+        });
 
-    // Close mobile nav when clicking outside (optional)
-    document.addEventListener('click', (e) => {
-        if (!navMenu.contains(e.target) && !navToggle.contains(e.target) && document.body.classList.contains('nav-open')) {
-            document.body.classList.remove('nav-open');
-            navToggle.classList.remove('active');
-            navMenu.classList.remove('active');
+        // Load saved theme on startup
+        if (localStorage.getItem('portfolio-theme') === 'light') {
+            document.body.classList.add('light-theme');
+            themeToggle.querySelector('i').classList.replace('fa-moon', 'fa-sun');
         }
-    });
+    }
 
-    // Add sticky header class on scroll
+    // --- 3. STICKY HEADER ON SCROLL ---
     window.addEventListener('scroll', () => {
-        if (window.scrollY > 0) {
+        if (window.scrollY > 50) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
     });
 
-    // Update current year in footer
-    const currentYearSpan = document.getElementById('current-year');
-    if (currentYearSpan) {
-        currentYearSpan.textContent = new Date().getFullYear();
+    // --- 4. MOBILE NAVIGATION ---
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', (e) => {
+            e.stopPropagation();
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+        });
+
+        // Close menu when a link is clicked
+        document.querySelectorAll('.nav-list a').forEach(link => {
+            link.addEventListener('click', () => {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            });
+        });
+
+        // Close menu when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!navMenu.contains(e.target) && !navToggle.contains(e.target)) {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+            }
+        });
     }
 
-    // --- Form Handling (Frontend Validation & Submission Placeholder) ---
-   // --- Form Handling (Real Submission to Formspree) ---
-const contactForm = document.getElementById('contact-form');
-const formStatus = document.getElementById('form-status');
+    // --- 5. SMOOTH SCROLLING WITH OFFSET ---
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            const targetId = this.getAttribute('href');
+            if (targetId === '#') return;
 
-if (contactForm) {
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault(); // Prevent page refresh
+            const targetElement = document.querySelector(targetId);
+            if (targetElement) {
+                e.preventDefault();
+                const headerHeight = header.offsetHeight;
+                const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset;
 
-        formStatus.textContent = 'Sending...';
-        formStatus.style.color = '#007bff'; // Blue
-
-        const formData = new FormData(contactForm);
-
-        try {
-            // Send the real data to Formspree using the 'action' from your HTML
-            const response = await fetch(contactForm.action, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            });
-
-            if (response.ok) {
-                // Success!
-                formStatus.textContent = 'Message sent successfully! I will get back to you soon.';
-                formStatus.style.color = '#28a745'; // Green
-                contactForm.reset(); // Clear the form
-            } else {
-                // Error from server
-                formStatus.textContent = 'Oops! There was a problem sending your message.';
-                formStatus.style.color = '#dc3545'; // Red
+                window.scrollTo({
+                    top: targetPosition - headerHeight,
+                    behavior: 'smooth'
+                });
             }
-        } catch (error) {
-            // Network error
-            console.error('Error submitting form:', error);
-            formStatus.textContent = 'An error occurred. Please check your connection and try again.';
-            formStatus.style.color = '#dc3545'; // Red
-        }
+        });
     });
-}
 
-    // Optional: Add active class to nav link on scroll
-    const sections = document.querySelectorAll('main section');
-    const navLinks = document.querySelectorAll('.nav-list a');
+    // --- 6. FORMSPREE SUBMISSION HANDLING ---
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const submitBtn = contactForm.querySelector('button');
+            const originalBtnText = submitBtn.textContent;
+            
+            // Show Loading State
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Sending...';
 
+            const formData = new FormData(contactForm);
+
+            try {
+                const response = await fetch(contactForm.action, {
+                    method: 'POST',
+                    body: formData,
+                    headers: { 'Accept': 'application/json' }
+                });
+
+                if (response.ok) {
+                    alert('Success! Your message has been sent.');
+                    contactForm.reset();
+                } else {
+                    alert('Oops! Something went wrong. Please try again.');
+                }
+            } catch (error) {
+                console.error('Submission Error:', error);
+                alert('Network error. Please check your internet connection.');
+            } finally {
+                submitBtn.disabled = false;
+                submitBtn.textContent = originalBtnText;
+            }
+        });
+    }
+
+    // --- 7. INTERSECTION OBSERVER (Active Nav Links) ---
     const observerOptions = {
-        root: null,
-        rootMargin: '0px 0px -50% 0px', // When 50% of section is visible
-        threshold: 0.5 // When 50% of the target is visible
+        threshold: 0.6
     };
 
-    const sectionObserver = new IntersectionObserver((entries, observer) => {
+    const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
-                navLinks.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${entry.target.id}`) {
-                        link.classList.add('active');
-                    }
+                const id = entry.target.getAttribute('id');
+                document.querySelectorAll('.nav-list a').forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('href') === `#${id}`);
                 });
             }
         });
     }, observerOptions);
 
-    sections.forEach(section => {
-        sectionObserver.observe(section);
+    document.querySelectorAll('section[id]').forEach(section => {
+        observer.observe(section);
     });
 
-
+    // --- 8. FOOTER YEAR ---
+    if (yearSpan) {
+        yearSpan.textContent = new Date().getFullYear();
+    }
 });
