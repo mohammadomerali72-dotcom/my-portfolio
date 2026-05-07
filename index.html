@@ -5,26 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Muhammad Omer Ali | Full-Stack Developer</title>
     
-    <!-- Favicon -->
     <link rel="icon" type="image/png" href="favicon.png">
-    
-    <!-- CSS & Icons -->
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    
-    <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
 <body class="dark-theme">
 
-    <!-- Header Navigation -->
     <header class="header">
         <div class="container header-container">
-            <!-- Logo as a link to top -->
             <a href="#" class="logo" id="site-logo">MOA</a>
-            
             <nav class="nav-menu" id="nav-menu">
                 <ul class="nav-list">
                     <li><a href="#about">About</a></li>
@@ -33,27 +23,17 @@
                     <li><a href="#contact">Contact</a></li>
                 </ul>
             </nav>
-
-            <!-- Buttons Side-by-Side Container -->
             <div class="nav-actions">
-                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
-                    <i class="fas fa-moon"></i>
-                </button>
-                <button class="mobile-toggle" id="mobile-toggle" aria-label="Menu">
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                    <span class="bar"></span>
-                </button>
+                <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme"><i class="fas fa-moon"></i></button>
+                <button class="mobile-toggle" id="mobile-toggle"><span class="bar"></span><span class="bar"></span><span class="bar"></span></button>
             </div>
         </div>
     </header>
 
     <main>
-        <!-- Futuristic Background Orbs -->
         <div class="bg-orb orb-1"></div>
         <div class="bg-orb orb-2"></div>
 
-        <!-- Hero Section -->
         <section id="hero" class="hero-section">
             <div class="container">
                 <h1>MUHAMMAD OMER ALI</h1>
@@ -65,19 +45,15 @@
             </div>
         </section>
 
-        <!-- About Section -->
         <section id="about" class="section-padding">
             <div class="container">
                 <div class="glass-card about-card">
                     <h2 class="section-title">About Me</h2>
-                    <p style="text-align: center; color: var(--dim); line-height: 1.8; max-width: 850px; margin: 0 auto; font-size: 1.1rem;">
-                        Hello! I'm Muhammad Omer Ali, a passionate and dedicated Web Developer focusing on clean code, responsive design, and user-friendly interfaces. My journey in web development has equipped me with a robust skill set, allowing me to tackle challenges from database design to pixel-perfect UIs. I strive to build digital solutions that are as efficient as they are visually stunning.
-                    </p>
+                    <p>Hello! I'm Muhammad Omer Ali, a passionate Web Developer focused on pixel-perfect UIs and robust backend systems. I specialize in turning complex ideas into scalable digital products with clean, maintainable code.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Skills Section -->
         <section id="skills" class="section-padding">
             <div class="container">
                 <h2 class="section-title">My Skills</h2>
@@ -95,169 +71,55 @@
             </div>
         </section>
 
-        <!-- Projects Section -->
         <section id="projects" class="section-padding">
             <div class="container">
                 <h2 class="section-title">My Projects</h2>
                 <div class="projects-grid">
-                    <!-- Project 1 -->
+                    <!-- Project Cards -->
                     <div class="project-card">
                         <img src="https://images.unsplash.com/photo-1557821552-17105176677c?w=800" alt="E-commerce">
-                        <div class="project-info">
-                            <h3>E-commerce Platform</h3>
-                            <p class="tech">PHP, MySQL, Laravel</p>
-                            <p>Full-stack store with user auth, product catalog, cart, and secure checkout flow.</p>
-                        </div>
-                        <div class="project-footer">
-                            <a href="https://github.com/mohammadomerali72-dotcom/ecommerce-fullstack-design.-" target="_blank" class="btn-main sm">GitHub Repo <i class="fab fa-github"></i></a>
-                        </div>
+                        <div class="project-info"><h3>E-commerce Pro</h3><p>Laravel, PHP, MySQL</p></div>
+                        <div class="project-footer"><a href="https://github.com/mohammadomerali72-dotcom/ecommerce-fullstack-design.-" class="btn-main sm">GitHub <i class="fab fa-github"></i></a></div>
                     </div>
-                    <!-- Project 2 -->
                     <div class="project-card">
-                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800" alt="AuraDash">
-                        <div class="project-info">
-                            <h3>AuraDash AI SaaS</h3>
-                            <p class="tech">Laravel 11, Tailwind, Llama 3</p>
-                            <p>A premium, local-first AI SaaS Neural OS built with Laravel 11 and integrated with Llama 3.</p>
-                        </div>
-                        <div class="project-footer">
-                            <a href="https://github.com/mohammadomerali72-dotcom/auradash" target="_blank" class="btn-main sm">GitHub Repo <i class="fab fa-github"></i></a>
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800" alt="AI">
+                        <div class="project-info"><h3>AuraDash AI</h3><p>Laravel 11, Llama 3</p></div>
+                        <div class="project-footer"><a href="https://github.com/mohammadomerali72-dotcom/auradash" class="btn-main sm">GitHub <i class="fab fa-github"></i></a></div>
                     </div>
-                    <!-- Project 3 -->
                     <div class="project-card">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800" alt="Dashboard">
-                        <div class="project-info">
-                            <h3>Pro Social Suite</h3>
-                            <p class="tech">HTML, CSS, JavaScript</p>
-                            <p>A sleek social media dashboard for tracking analytics and managing various social accounts.</p>
-                        </div>
-                        <div class="project-footer">
-                            <a href="https://github.com/mohammadomerali72-dotcom/pro-social-suite" target="_blank" class="btn-main sm">GitHub Repo <i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <!-- Project 4 -->
-                    <div class="project-card">
-                        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800" alt="Nexus">
-                        <div class="project-info">
-                            <h3>Nexus Full-Stack</h3>
-                            <p class="tech">TypeScript, Node.js, React</p>
-                            <p>A robust platform focusing on scalable architecture and type-safe data handling.</p>
-                        </div>
-                        <div class="project-footer">
-                            <a href="https://github.com/mohammadomerali72-dotcom/Nexus-Platform-FullStack" target="_blank" class="btn-main sm">GitHub Repo <i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <!-- Project 5 -->
-                    <div class="project-card">
-                        <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800" alt="Elite Estates">
-                        <div class="project-info">
-                            <h3>Elite Estates</h3>
-                            <p class="tech">PHP, MySQL, CSS</p>
-                            <p>Modern real estate management system with advanced filtering and agent features.</p>
-                        </div>
-                        <div class="project-footer">
-                            <a href="https://github.com/mohammadomerali72-dotcom/elite_estates" target="_blank" class="btn-main sm">GitHub Repo <i class="fab fa-github"></i></a>
-                        </div>
-                    </div>
-                    <!-- Project 6 -->
-                    <div class="project-card">
-                        <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800" alt="Portfolio">
-                        <div class="project-info">
-                            <h3>Personal Portfolio</h3>
-                            <p class="tech">HTML, CSS, JavaScript</p>
-                            <p>The code for this futuristic website using glassmorphism and modern UI techniques.</p>
-                        </div>
-                        <div class="project-footer">
-                            <a href="https://github.com/mohammadomerali72-dotcom/my-portfolio" target="_blank" class="btn-main sm">GitHub Repo <i class="fab fa-github"></i></a>
-                        </div>
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800" alt="Social">
+                        <div class="project-info"><h3>Pro Social Suite</h3><p>HTML, CSS, JS</p></div>
+                        <div class="project-footer"><a href="https://github.com/mohammadomerali72-dotcom/pro-social-suite" class="btn-main sm">GitHub <i class="fab fa-github"></i></a></div>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact" class="section-padding">
             <div class="container">
                 <div class="glass-card contact-card">
                     <h2 class="section-title">Get In Touch</h2>
-                    <form action="https://formspree.io/f/xblzwpod" method="POST">
-                        <div class="form-group">
-                            <label>Name</label>
-                            <input type="text" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Email</label>
-                            <input type="email" name="email" placeholder="Your Email" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Message</label>
-                            <textarea name="message" rows="5" placeholder="Your Message" required></textarea>
-                        </div>
-                        <div class="center-btn">
-                            <button type="submit" class="btn-main">Send Message</button>
-                        </div>
+                    <form id="contact-form" action="https://formspree.io/f/xblzwpod" method="POST">
+                        <div class="form-group"><label>Name</label><input type="text" name="name" required></div>
+                        <div class="form-group"><label>Email</label><input type="email" name="email" required></div>
+                        <div class="form-group"><label>Message</label><textarea name="message" rows="4" required></textarea></div>
+                        <div class="center-btn"><button type="submit" class="btn-main" id="submit-btn">Send Message</button></div>
                     </form>
+                    <div id="form-status" class="form-status"></div>
                 </div>
             </div>
         </section>
     </main>
 
     <footer class="footer">
-        <div class="container">
-            <div class="social-links">
-                <a href="https://www.linkedin.com/in/muhammad-omer-ali" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                <a href="https://github.com/mohammadomerali72-dotcom" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="mailto:mohammadomerali72@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-            </div>
-            <p>&copy; <span id="year"></span> Muhammad Omer Ali. All rights reserved.</p>
+        <div class="social-links">
+            <a href="https://www.linkedin.com/in/muhammad-omer-ali" target="_blank"><i class="fab fa-linkedin"></i></a>
+            <a href="https://github.com/mohammadomerali72-dotcom" target="_blank"><i class="fab fa-github"></i></a>
+            <a href="mailto:mohammadomerali72@gmail.com"><i class="fas fa-envelope"></i></a>
         </div>
+        <p>&copy; <span id="year"></span> Muhammad Omer Ali. All rights reserved.</p>
     </footer>
 
-    <!-- JavaScript Handling -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const themeBtn = document.getElementById('theme-toggle');
-            const mobileToggle = document.getElementById('mobile-toggle');
-            const navMenu = document.getElementById('nav-menu');
-            const navLinks = document.querySelectorAll('.nav-list a');
-            const siteLogo = document.getElementById('site-logo');
-
-            // 1. Theme Logic
-            themeBtn.addEventListener('click', () => {
-                document.body.classList.toggle('light-theme');
-                const icon = themeBtn.querySelector('i');
-                icon.classList.toggle('fa-moon');
-                icon.classList.toggle('fa-sun');
-            });
-
-            // 2. Mobile Menu Logic
-            mobileToggle.addEventListener('click', (e) => {
-                e.stopPropagation();
-                mobileToggle.classList.toggle('active');
-                navMenu.classList.toggle('active');
-            });
-
-            // 3. Logo Click to Scroll Top
-            siteLogo.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-                // Auto-close menu if logo is clicked while menu is open
-                mobileToggle.classList.remove('active');
-                navMenu.classList.remove('active');
-            });
-
-            // 4. Auto-close Mobile Menu on link click
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    mobileToggle.classList.remove('active');
-                    navMenu.classList.remove('active');
-                });
-            });
-
-            // 5. Dynamic Year
-            document.getElementById('year').textContent = new Date().getFullYear();
-        });
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
