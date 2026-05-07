@@ -17,16 +17,16 @@
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 </head>
-<body>
+<body class="dark-theme"> <!-- Default Dark Theme -->
 
     <!-- Header / Navigation -->
     <header class="header">
-        <div class="container header-flex">
+        <div class="container header-container">
             <div class="logo">MOA</div>
             
-            <nav class="nav-menu">
+            <nav class="nav-menu" id="nav-menu">
                 <ul class="nav-list">
                     <li><a href="#about">About</a></li>
                     <li><a href="#skills">Skills</a></li>
@@ -36,7 +36,7 @@
             </nav>
 
             <div class="nav-actions">
-                <!-- Theme Toggle Button -->
+                <!-- Futuristic Theme Toggle -->
                 <button id="theme-toggle" class="theme-toggle" aria-label="Toggle theme">
                     <i class="fas fa-moon"></i>
                 </button>
@@ -62,20 +62,18 @@
         </section>
 
         <!-- About Section -->
-        <section id="about" class="about-section section-padding">
+        <section id="about" class="section-padding">
             <div class="container">
                 <h2 class="section-title">About Me</h2>
                 <div class="about-content">
-                    <div class="about-text">
-                        <p>Hello! I'm Muhammad Omer Ali, a passionate and dedicated Web Developer with a strong foundation in both front-end and back-end technologies. I love bringing ideas to life on the web, focusing on clean code, responsive design, and user-friendly interfaces.</p>
-                        <p>My journey in web development has equipped me with a robust skill set, allowing me to tackle challenges from database design to pixel-perfect UIs.</p>
-                    </div>
+                    <p>Hello! I'm Muhammad Omer Ali, a passionate and dedicated Web Developer with a strong foundation in both front-end and back-end technologies. I love bringing ideas to life on the web, focusing on clean code, responsive design, and user-friendly interfaces.</p>
+                    <p>My journey in web development has equipped me with a robust skill set, allowing me to tackle challenges from database design to pixel-perfect UIs.</p>
                 </div>
             </div>
         </section>
 
         <!-- Skills Section -->
-        <section id="skills" class="skills-section section-padding">
+        <section id="skills" class="section-padding">
             <div class="container">
                 <h2 class="section-title">My Skills</h2>
                 <div class="skills-grid">
@@ -93,96 +91,77 @@
         </section>
 
         <!-- Projects Section -->
-        <section id="projects" class="projects-section section-padding">
+        <section id="projects" class="section-padding">
             <div class="container">
                 <h2 class="section-title">My Projects</h2>
                 <div class="projects-grid">
-
-                    <!-- Project 1 -->
+                    <!-- Project Cards (Images from Unsplash for better browser rendering) -->
                     <div class="project-card">
                         <img src="https://images.unsplash.com/photo-1557821552-17105176677c?w=800" alt="E-commerce">
                         <h3>E-commerce Platform</h3>
                         <p class="technologies">Laravel, PHP, MySQL, JS</p>
                         <p>Developed a full-featured e-commerce platform with authentication and order management.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/mohammadomerali72-dotcom/ecommerce-fullstack-design.-" target="_blank" class="btn-project">GitHub Repo <i class="fab fa-github"></i></a>
-                        </div>
+                        <div class="project-links"><a href="https://github.com/mohammadomerali72-dotcom/ecommerce-fullstack-design.-" target="_blank" class="btn-project">GitHub Repo <i class="fab fa-github"></i></a></div>
                     </div>
 
-                    <!-- Project 2 -->
                     <div class="project-card">
-                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800" alt="Dashboard">
+                        <img src="https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=800" alt="Social Dashboard">
                         <h3>Social Dashboard</h3>
                         <p class="technologies">HTML, CSS, JS, API</p>
                         <p>Created an interactive dashboard to display social media analytics using various APIs.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/mohammadomerali72-dotcom/pro-social-suite" target="_blank" class="btn-project">GitHub Repo <i class="fab fa-github"></i></a>
-                        </div>
+                        <div class="project-links"><a href="https://github.com/mohammadomerali72-dotcom/pro-social-suite" target="_blank" class="btn-project">GitHub Repo <i class="fab fa-github"></i></a></div>
                     </div>
 
-                    <!-- Project 3 -->
                     <div class="project-card">
                         <img src="https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800" alt="AI SaaS">
                         <h3>AuraDash AI SaaS</h3>
                         <p class="technologies">Laravel 11, Tailwind, Llama 3</p>
                         <p>A premium, local-first AI SaaS Neural OS built with Laravel 11 and Ollama.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/mohammadomerali72-dotcom/auradash" target="_blank" class="btn-project">GitHub Repo <i class="fab fa-github"></i></a>
-                        </div>
+                        <div class="project-links"><a href="https://github.com/mohammadomerali72-dotcom/auradash" target="_blank" class="btn-project">GitHub Repo <i class="fab fa-github"></i></a></div>
                     </div>
 
-                    <!-- Project 4 -->
                     <div class="project-card">
                         <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800" alt="Nexus">
                         <h3>Nexus Full-Stack</h3>
                         <p class="technologies">TypeScript, Node, React</p>
                         <p>A robust full-stack application focused on scalable architecture and type-safety.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/mohammadomerali72-dotcom/Nexus-Platform-FullStack" target="_blank" class="btn-project">GitHub Repo <i class="fab fa-github"></i></a>
-                        </div>
+                        <div class="project-links"><a href="https://github.com/mohammadomerali72-dotcom/Nexus-Platform-FullStack" target="_blank" class="btn-project">GitHub Repo <i class="fab fa-github"></i></a></div>
                     </div>
 
-                    <!-- Project 5 -->
                     <div class="project-card">
                         <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=800" alt="Real Estate">
                         <h3>Elite Estates</h3>
                         <p class="technologies">PHP, MySQL, HTML, CSS</p>
                         <p>A comprehensive real estate system for property listings with advanced filtering.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/mohammadomerali72-dotcom/elite_estates" target="_blank" class="btn-project">GitHub Repo <i class="fab fa-github"></i></a>
-                        </div>
+                        <div class="project-links"><a href="https://github.com/mohammadomerali72-dotcom/elite_estates" target="_blank" class="btn-project">GitHub Repo <i class="fab fa-github"></i></a></div>
                     </div>
 
-                    <!-- Project 6 -->
                     <div class="project-card">
                         <img src="https://images.unsplash.com/photo-1507238691740-187a5b1d37b8?w=800" alt="Portfolio">
                         <h3>Personal Portfolio</h3>
                         <p class="technologies">HTML, CSS, JS</p>
                         <p>The source code for this portfolio website, featuring glassmorphism design.</p>
-                        <div class="project-links">
-                            <a href="https://github.com/mohammadomerali72-dotcom/my-portfolio" target="_blank" class="btn-project">GitHub Repo <i class="fab fa-github"></i></a>
-                        </div>
+                        <div class="project-links"><a href="https://github.com/mohammadomerali72-dotcom/my-portfolio" target="_blank" class="btn-project">GitHub Repo <i class="fab fa-github"></i></a></div>
                     </div>
-
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
+        <!-- Contact Section (Edge-Fixed Structure) -->
         <section id="contact" class="section-padding">
             <div class="container">
                 <h2 class="section-title">Get In Touch</h2>
                 <div class="contact-form">
                     <form action="https://formspree.io/f/xblzwpod" method="POST">
-                        <div class="input-group">
+                        <div class="form-group">
                             <label for="name">Name</label>
                             <input type="text" id="name" name="name" placeholder="Your Name" required>
                         </div>
-                        <div class="input-group">
+                        <div class="form-group">
                             <label for="email">Email</label>
                             <input type="email" id="email" name="email" placeholder="Your Email" required>
                         </div>
-                        <div class="input-group">
+                        <div class="form-group">
                             <label for="message">Message</label>
                             <textarea id="message" name="message" rows="5" placeholder="Your Message" required></textarea>
                         </div>
@@ -206,31 +185,26 @@
         </div>
     </footer>
 
-    <!-- JavaScript for Interactions -->
+    <!-- JavaScript -->
     <script>
-        // 1. Theme Toggle Logic
-        const toggleBtn = document.getElementById('theme-toggle');
-        const body = document.body;
-
-        toggleBtn.addEventListener('click', () => {
-            body.classList.toggle('light-theme');
-            const icon = toggleBtn.querySelector('i');
-            if(body.classList.contains('light-theme')) {
-                icon.classList.replace('fa-moon', 'fa-sun');
-            } else {
-                icon.classList.replace('fa-sun', 'fa-moon');
-            }
+        // 1. Theme Toggle
+        const btn = document.getElementById('theme-toggle');
+        btn.addEventListener('click', () => {
+            document.body.classList.toggle('light-theme');
+            const icon = btn.querySelector('i');
+            icon.classList.toggle('fa-moon');
+            icon.classList.toggle('fa-sun');
         });
 
-        // 2. Mobile Menu Logic
+        // 2. Mobile Menu
         const menuBtn = document.getElementById('mobile-menu-btn');
-        const nav = document.querySelector('.nav-menu');
+        const nav = document.getElementById('nav-menu');
         menuBtn.addEventListener('click', () => {
             nav.classList.toggle('active');
             menuBtn.classList.toggle('active');
         });
 
-        // 3. Update Year
+        // 3. Year
         document.getElementById('year').textContent = new Date().getFullYear();
     </script>
 </body>
