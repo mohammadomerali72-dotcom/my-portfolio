@@ -395,62 +395,59 @@ body::after{
 /* =========================================================
    HERO SECTION
 ========================================================= */
-
 .hero-section{
     min-height:100vh;
+    width:100%;
     display:flex;
     justify-content:center;
     align-items:center;
     text-align:center;
     position:relative;
+    padding:140px 20px 80px;
+}
+
+.hero-section .container{
+    width:100%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 .hero-content{
+    width:100%;
     max-width:950px;
-}
-
-.hero-tag{
-    display:inline-flex;
+    margin:auto;
+    display:flex;
+    flex-direction:column;
     align-items:center;
-    gap:10px;
-
-    padding:12px 22px;
-
-    background:var(--glass);
-
-    border:1px solid var(--border);
-
-    border-radius:100px;
-
-    margin-bottom:30px;
-
-    font-size:0.85rem;
-    font-weight:700;
-    text-transform:uppercase;
-    letter-spacing:2px;
+    justify-content:center;
 }
 
 .hero-section h1{
     font-family:'Montserrat',sans-serif;
-    font-size:clamp(4rem,10vw,7rem);
-    line-height:0.95;
+    font-size:clamp(3.5rem,10vw,7rem);
+    line-height:1;
     font-weight:900;
-    letter-spacing:-5px;
+    letter-spacing:-4px;
     margin-bottom:25px;
-}
-
-.hero-section h1 span{
-    background:var(--gradient);
-    -webkit-background-clip:text;
-    -webkit-text-fill-color:transparent;
+    text-align:center;
 }
 
 .tagline{
     color:var(--dim);
-    font-size:1.3rem;
+    font-size:1.2rem;
     line-height:1.8;
-    max-width:800px;
-    margin:auto auto 45px;
+    max-width:750px;
+    margin:0 auto 45px;
+    text-align:center;
+}
+
+.hero-actions{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:20px;
+    flex-wrap:wrap;
 }
 
 /* =========================================================
