@@ -834,25 +834,6 @@ body::after{
 }
 
 /* =========================================================
-   DESKTOP HERO SECTION FIX (Spacing & Centering)
-========================================================= */
-.hero-section {
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    justify-content: center; /* Vertically Center */
-    align-items: center;     /* Horizontally Center */
-    text-align: center;
-    padding-top: 80px;       /* Header space */
-    position: relative;
-}
-
-.hero-content {
-    width: min(1000px, 92%);
-    margin: 0 auto;
-}
-
-/* =========================================================
    MOBILE MENU & RESPONSIVE (900px)
 ========================================================= */
 @media (max-width: 900px) {
@@ -942,68 +923,4 @@ body::after{
         text-align: center;
     }
 }
-/* =========================================================
-   RESPONSIVE
-========================================================= */
 
-@media(max-width:900px){
-
-    .header{
-        width:94%;
-    }
-
-    .nav-list{
-        display:none;
-    }
-
-    .mobile-toggle{
-        display:flex;
-    }
-
-    .hero-section h1{
-        font-size:4rem;
-    }
-
-    .section-padding{
-        padding:100px 0;
-    }
-
-    .contact-card{
-        padding:35px 25px;
-    }
-
-    .projects-grid{
-        grid-template-columns:1fr;
-    }
-
-    .skills-grid{
-        grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
-    }
-
-}
-
-@media(max-width:600px){
-
-    .hero-section h1{
-        font-size:3.2rem;
-        letter-spacing:-2px;
-    }
-
-    .tagline{
-        font-size:1rem;
-    }
-
-    .btn-main{
-        width:100%;
-        justify-content:center;
-    }
-
-    .hero-actions{
-        flex-direction:column;
-    }
-
-    .section-title{
-        font-size:2rem;
-    }
-
-}
